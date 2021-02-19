@@ -65,6 +65,8 @@ class _MyBookingsScreenState extends State<MyBookingsScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => DetailScreen(
+                                      price: snapshot
+                                          .data.bookings[index].basePrice,
                                       adults:
                                           snapshot.data.bookings[index].adults,
                                       checkin: snapshot

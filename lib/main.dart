@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_booking_app/provider/stateProvier.dart';
 import 'package:hotel_booking_app/view/screens/done.dart';
 import 'package:hotel_booking_app/view/screens/food/foodMain.dart';
 import 'package:hotel_booking_app/view/screens/food/restaurant.dart';
@@ -19,8 +20,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dynamic token = FlutterSession().get('id');
-    return ChangeNotifierProvider<HomeViewModel>(
-      create: (context) => HomeViewModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<HomeViewModel>(
+          create: (context) => HomeViewModel(),
+        ),
+        ChangeNotifierProvider<MyState>(
+          create: (context) => MyState(),
+        )
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'eCommerce',
@@ -42,7 +50,7 @@ class MyApp extends StatelessWidget {
             FutureBuilder(
           future: FlutterSession().get('id'),
           builder: (context, snapshot) {
-            if (snapshot.data == "") {
+            if (snapshot.data == "" || !snapshot.hasData) {
               return WelcomeScreen();
             } else {
               return HomeScreen();

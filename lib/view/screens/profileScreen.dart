@@ -333,7 +333,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 return Column(
                   children: [
                     Container(
-                      height: screenSize.height * 0.96,
+                      height: screenSize.height * 0.89,
                       child: Stack(
                         children: [
                           Container(

@@ -33,7 +33,7 @@ class CheckHallAvailability {
   List<PriceDetail> priceDetails;
   Taxes taxes;
   String total;
-  String hall;
+  List<dynamic> hall;
 
   factory CheckHallAvailability.fromJson(Map<String, dynamic> json) =>
       CheckHallAvailability(
@@ -47,7 +47,7 @@ class CheckHallAvailability {
             json["price_details"].map((x) => PriceDetail.fromJson(x))),
         taxes: Taxes.fromJson(json["taxes"]),
         total: json["total"],
-        hall: json["hall"],
+        hall: List<dynamic>.from(json["hall"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
@@ -63,7 +63,7 @@ class CheckHallAvailability {
             List<dynamic>.from(priceDetails.map((x) => x.toJson())),
         "taxes": taxes.toJson(),
         "total": total,
-        "hall": hall,
+        "hall": List<dynamic>.from(hall.map((x) => x)),
       };
 }
 

@@ -56,13 +56,13 @@ class _PersonalInfoState extends State<PersonalInfo> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: screenSize.height * 0.07,
+                  height: screenSize.height * 0.05,
                 ),
                 Container(
                     height: screenSize.height * 0.2,
                     child: Image(image: AssetImage("assets/images/info.png"))),
                 SizedBox(
-                  height: screenSize.height * 0.1,
+                  height: screenSize.height * 0.05,
                 ),
                 TextInput_widget(
                   labelText: "CNIC",

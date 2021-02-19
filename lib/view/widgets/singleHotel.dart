@@ -17,6 +17,7 @@ class SingleHotel extends StatefulWidget {
   String price;
   String name;
   String image;
+  String screenName;
   double rating;
   String tag;
   bool hall, home;
@@ -28,6 +29,7 @@ class SingleHotel extends StatefulWidget {
       this.price,
       this.name,
       this.image,
+      this.screenName,
       this.rating,
       this.adult,
       this.kid,
@@ -185,7 +187,6 @@ class _SingleHotelState extends State<SingleHotel> {
                   blurRadius: 6.0,
                 ),
               ]),
-          height: screenSize.height * 0.078,
           child: Stack(
             children: [
               Column(
@@ -199,7 +200,9 @@ class _SingleHotelState extends State<SingleHotel> {
                           blurRadius: 30,
                           offset: Offset(0, 30))
                     ]),
-                    height: screenSize.height * 0.21,
+                    height: widget.screenName == "main"
+                        ? screenSize.height * 0.2
+                        : screenSize.height * 0.23,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: checkNetwork
@@ -240,7 +243,7 @@ class _SingleHotelState extends State<SingleHotel> {
                         // product_list[index]["name"],
                         widget.name,
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 2,
+                        maxLines: 1,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: Color(0xff7E57C2),
@@ -271,32 +274,42 @@ class _SingleHotelState extends State<SingleHotel> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      widget.name,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.w600,
-                        letterSpacing: 1.2,
+                    Container(
+                      width: screenSize.width * 0.4,
+                      child: Text(
+                        widget.name,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.2,
+                        ),
                       ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        Icon(
-                          FontAwesomeIcons.locationArrow,
-                          size: 14.0,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 5.0),
-                        Text(
-                          "Italy",
-                          style: TextStyle(
-                            fontSize: 19,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                    widget.screenName == "main"
+                        ? SizedBox(
+                            height: 9,
+                          )
+                        : SizedBox(
+                            height: 10,
+                          )
+                    // Row(
+                    //   children: <Widget>[
+                    //     Icon(
+                    //       FontAwesomeIcons.locationArrow,
+                    //       size: 14.0,
+                    //       color: Colors.white,
+                    //     ),
+                    //     SizedBox(width: 5.0),
+                    //     Text(
+                    //       "Italy",
+                    //       style: TextStyle(
+                    //         fontSize: 19,
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
                   ],
                 ),
               ),

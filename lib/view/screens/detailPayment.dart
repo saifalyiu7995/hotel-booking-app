@@ -9,11 +9,13 @@ class DetailScreen extends StatefulWidget {
       adults,
       nights,
       checkin,
-      checkout;
+      checkout,
+      price;
   DetailScreen(
       {this.adults,
       this.checkin,
       this.checkout,
+      this.price,
       this.guest_id,
       this.guest_name,
       this.kids,
@@ -45,7 +47,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         fontFamily: "SFproBold"),
                   ),
                   Text(
-                    "\$14230.00",
+                    "\$" + widget.price,
                     style: TextStyle(
                         color: Color(0xff262F56),
                         fontSize: 22,

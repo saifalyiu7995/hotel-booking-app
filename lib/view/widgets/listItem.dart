@@ -22,7 +22,7 @@ class ListItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: screenSize.height * 0.12,
+      height: screenSize.height * 0.14,
       width: screenSize.width * 0.9,
       decoration: BoxDecoration(
           color: Color(0xffF2F3F7),

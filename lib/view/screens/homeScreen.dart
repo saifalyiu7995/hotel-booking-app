@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:hotel_booking_app/common.dart';
 import 'package:hotel_booking_app/models/myBokking_model.dart';
+import 'package:hotel_booking_app/provider/stateProvier.dart';
 import 'package:hotel_booking_app/services/web_service.dart';
 import 'package:hotel_booking_app/view/screens/food/restaurant.dart';
 import 'package:hotel_booking_app/view/screens/hallsByDate.dart';
@@ -112,6 +113,13 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  String formatTimeOfDay(TimeOfDay tod) {
+    final now = new DateTime.now();
+    final dt = DateTime(now.year, now.month, now.day, tod.hour, tod.minute);
+    final format = intl.DateFormat.jm(); //"6:00 AM"
+    return format.format(dt);
+  }
+
   Future<void> _handleClickMe() async {
     return showCupertinoModalPopup<void>(
       context: context,
@@ -212,6 +220,7 @@ class _HomeScreenState extends State<HomeScreen> {
     var screenSize = MediaQuery.of(context).size;
     // final roomsbydate =
     //     Provider.of<RoomByDateViewModel>(context, listen: false);
+    // final closemenu = Provider.of<MyState>(context);
 
     ProgressDialog pr = ProgressDialog(context);
     pr = ProgressDialog(context,
@@ -332,26 +341,31 @@ class _HomeScreenState extends State<HomeScreen> {
                   right: 10,
                   left: 10,
                   child: Center(
-                    child: Container(
-                      width: screenSize.width * 0.9,
-                      height: screenSize.height * 0.1,
-                      decoration: BoxDecoration(
-                          color: Color(0xff000000).withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(30),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 10,
-                                color: Color(0xff7E57C2).withOpacity(0.2),
-                                spreadRadius: 3,
-                                offset: Offset(0, 0)),
-                          ]),
-                      child: Center(
-                        child: Text(
-                          "Make Your Reservation.",
-                          style: TextStyle(
-                              fontFamily: "SFproBold",
-                              fontSize: 28,
-                              color: Colors.white),
+                    child: GestureDetector(
+                      onTap: () {
+                        // closemenu.closeMenuu = true;
+                      },
+                      child: Container(
+                        width: screenSize.width * 0.9,
+                        height: screenSize.height * 0.1,
+                        decoration: BoxDecoration(
+                            color: Color(0xff000000).withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(30),
+                            boxShadow: [
+                              BoxShadow(
+                                  blurRadius: 10,
+                                  color: Color(0xff7E57C2).withOpacity(0.2),
+                                  spreadRadius: 3,
+                                  offset: Offset(0, 0)),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            "Make Your Reservation",
+                            style: TextStyle(
+                                fontFamily: "SFproBold",
+                                fontSize: 28,
+                                color: Colors.white),
+                          ),
                         ),
                       ),
                     ),
@@ -493,12 +507,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     child: Text(
                                                       _timeFrom == null
                                                           ? "From"
-                                                          : _timeFrom
-                                                                  .hourOfPeriod
-                                                                  .toString() +
-                                                              ":" +
-                                                              _timeFrom.minute
-                                                                  .toString(),
+                                                          : formatTimeOfDay(
+                                                              _timeFrom),
                                                       style: TextStyle(
                                                           color:
                                                               Color(0xff7E57C2),
@@ -544,11 +554,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     child: Text(
                                                       _timeTo == null
                                                           ? "To"
-                                                          : _timeTo.hourOfPeriod
-                                                                  .toString() +
-                                                              ":" +
-                                                              _timeTo.minute
-                                                                  .toString(),
+                                                          : formatTimeOfDay(
+                                                              _timeTo),
                                                       style: TextStyle(
                                                           color:
                                                               Color(0xff7E57C2),
@@ -894,6 +901,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       name: hvm.rooms[index].roomvm["title"] ?? "abc",
                       price: hvm.rooms[index].roomvm["base_price"] ?? "75.00",
                       tag: "",
+                      screenName: "main",
                       hall: false,
                       home: true,
                       adult: "1",
@@ -932,6 +940,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       name: hvm.halls[index].hallm.title ?? "abc",
                       price: hvm.halls[index].hallm.basePrice ?? "75.00",
                       tag: "",
+                      screenName: "main",
                       hall: false,
                       home: true,
                       adult: "1",

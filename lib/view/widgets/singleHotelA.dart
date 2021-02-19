@@ -71,7 +71,7 @@ class SingleHotelA extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          'per pax',
+                          'per night',
                           style: TextStyle(
                             color: Colors.grey,
                           ),
@@ -86,7 +86,7 @@ class SingleHotelA extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                _buildRatingStars(4),
+                // _buildRatingStars(4),
                 SizedBox(height: 10.0),
                 Row(
                   children: <Widget>[

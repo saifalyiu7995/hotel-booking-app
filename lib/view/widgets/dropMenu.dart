@@ -8,14 +8,16 @@ class DropMenu extends StatefulWidget {
   final Color backgroundColor;
   final Color iconColor;
   final ValueChanged<int> onChange;
+  bool closeMenu;
 
-  const DropMenu({
+  DropMenu({
     Key key,
     this.icons,
     this.name,
     this.borderRadius,
     this.backgroundColor = Colors.deepPurpleAccent,
     this.iconColor = Colors.black,
+    this.closeMenu,
     this.onChange,
   })  : assert(icons != null),
         super(key: key);
@@ -48,6 +50,12 @@ class _DropMenuState extends State<DropMenu>
   void dispose() {
     _animationController.dispose();
     super.dispose();
+  }
+
+  closeMenuOutSide() {
+    setState(() {
+      closeMenu();
+    });
   }
 
   findButton() {

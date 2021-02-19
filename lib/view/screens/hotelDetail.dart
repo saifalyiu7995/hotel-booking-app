@@ -177,25 +177,25 @@ class _HotelDetailState extends State<HotelDetail> {
                                       color: Colors.white,
                                       onPressed: () => Navigator.pop(context),
                                     ),
-                                    Row(
-                                      children: <Widget>[
-                                        IconButton(
-                                          icon: Icon(Icons.search),
-                                          iconSize: 30.0,
-                                          color: Colors.white,
-                                          onPressed: () =>
-                                              Navigator.pop(context),
-                                        ),
-                                        IconButton(
-                                          icon: Icon(
-                                              FontAwesomeIcons.sortAmountDown),
-                                          iconSize: 25.0,
-                                          color: Colors.white,
-                                          onPressed: () =>
-                                              Navigator.pop(context),
-                                        ),
-                                      ],
-                                    ),
+                                    // Row(
+                                    //   children: <Widget>[
+                                    //     IconButton(
+                                    //       icon: Icon(Icons.search),
+                                    //       iconSize: 30.0,
+                                    //       color: Colors.white,
+                                    //       onPressed: () =>
+                                    //           Navigator.pop(context),
+                                    //     ),
+                                    //     IconButton(
+                                    //       icon: Icon(
+                                    //           FontAwesomeIcons.sortAmountDown),
+                                    //       iconSize: 25.0,
+                                    //       color: Colors.white,
+                                    //       onPressed: () =>
+                                    //           Navigator.pop(context),
+                                    //     ),
+                                    //   ],
+                                    // ),
                                   ],
                                 ),
                               ),
@@ -214,35 +214,35 @@ class _HotelDetailState extends State<HotelDetail> {
                                         letterSpacing: 1.2,
                                       ),
                                     ),
-                                    Row(
-                                      children: <Widget>[
-                                        Icon(
-                                          FontAwesomeIcons.locationArrow,
-                                          size: 15.0,
-                                          color: Colors.white70,
-                                        ),
-                                        SizedBox(width: 5.0),
-                                        Text(
-                                          "Spain",
-                                          style: TextStyle(
-                                            color: Colors.white70,
-                                            fontSize: 20.0,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
+                                    // Row(
+                                    //   children: <Widget>[
+                                    //     Icon(
+                                    //       FontAwesomeIcons.locationArrow,
+                                    //       size: 15.0,
+                                    //       color: Colors.white70,
+                                    //     ),
+                                    //     SizedBox(width: 5.0),
+                                    //     Text(
+                                    //       "Spain",
+                                    //       style: TextStyle(
+                                    //         color: Colors.white70,
+                                    //         fontSize: 20.0,
+                                    //       ),
+                                    //     ),
+                                    //   ],
+                                    // ),
                                   ],
                                 ),
                               ),
-                              Positioned(
-                                right: 20.0,
-                                bottom: 20.0,
-                                child: Icon(
-                                  Icons.location_on,
-                                  color: Colors.white70,
-                                  size: 25.0,
-                                ),
-                              ),
+                              // Positioned(
+                              //   right: 20.0,
+                              //   bottom: 20.0,
+                              //   child: Icon(
+                              //     Icons.location_on,
+                              //     color: Colors.white70,
+                              //     size: 25.0,
+                              //   ),
+                              // ),
                             ],
                           )
                         ],
@@ -252,7 +252,7 @@ class _HotelDetailState extends State<HotelDetail> {
                       ),
                       Center(
                         child: Container(
-                          height: screenSize.height * 0.41,
+                          height: screenSize.height * 0.42,
                           width: screenSize.width * 0.9,
                           decoration: BoxDecoration(
                               color: Color(0xffFFFFFF),
@@ -371,7 +371,7 @@ class _HotelDetailState extends State<HotelDetail> {
                                               .text)
                                           .documentElement
                                           .text,
-                                  maxLines: 3,
+                                  maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: Colors.grey, fontSize: 14),
@@ -405,7 +405,7 @@ class _HotelDetailState extends State<HotelDetail> {
                                 ),
                               ),
                               SizedBox(
-                                height: screenSize.height * 0.15,
+                                height: screenSize.height * 0.14,
                                 width: double.infinity,
                                 child: ListView.builder(
                                   scrollDirection: Axis.horizontal,

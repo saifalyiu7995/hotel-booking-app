@@ -207,7 +207,7 @@ class _ForgetPassScreenState extends State<ForgetPassScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return RegisterScreen();
+                          return LoginScreen();
                         },
                       ),
                     );
